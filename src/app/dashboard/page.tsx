@@ -122,7 +122,7 @@ export default function DashboardPage() {
               {vendors.map((vendor) => (
                 <div key={vendor.id} className="p-4 md:w-1/3 sm:mb-0 mb-6">
                   <div className="rounded-lg h-64 overflow-hidden">
-                  <Image 
+                  <Image className="object-cover object-center h-full w-full"
                     src={vendor.image_url ?? "/placeholder.png"} 
                     alt={vendor.stall_name} 
                     width={300} 
