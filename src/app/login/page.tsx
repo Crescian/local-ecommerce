@@ -31,7 +31,7 @@ export default function LoginPage() {
       } else {
         setError(data.error || "Login failed");
       }
-    } catch (err) {
+    } catch {
       setError("Network error");
     }
   };
@@ -94,7 +94,7 @@ export default function LoginPage() {
           </button>
 
           <p className="text-xs mt-3">
-            Don't have an account? <span className="text-indigo-400 cursor-pointer">Sign up</span>
+            {"Don't have an account?"} <span className="text-indigo-400 cursor-pointer">Sign up</span>
           </p>
         </form>
       </div>

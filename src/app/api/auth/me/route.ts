@@ -15,8 +15,7 @@ export async function GET() {
     const payload = await jose.jwtVerify(token, secret);
 
     return NextResponse.json({ userId: payload.payload.userId });
-  } catch (err) {
-    console.error(err);
+  } catch {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 }

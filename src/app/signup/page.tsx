@@ -25,7 +25,7 @@ export default function SignupPage() {
       } else {
         setMessage("❌ " + data.error);
       }
-    } catch (error) {
+    } catch {
       setMessage("⚠️ Something went wrong");
     }
   };

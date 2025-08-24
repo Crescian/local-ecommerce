@@ -7,11 +7,8 @@ const prisma = new PrismaClient();
 // GET /api/vendors → List vendors (with market info)
 export async function GET() {
   try {
-    const vendors = await prisma.vendors.findMany({
-      include: {
-        // Add relation names once defined (market, user)
-      },
-    });
+    const vendors = await prisma.vendors.findMany();
+
     return NextResponse.json(vendors);
   } catch (error) {
     console.error("Error fetching vendors:", error);

@@ -2,15 +2,21 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 type Vendor = {
     id: number;
     stall_name: string;
     type: string;
     description: string;
+    image_url: string;
   };
 export default function DashboardPage() {
   const router = useRouter();
-  const [user, setUser] = useState<string | null>(null);
+  type User = {
+    name: string;
+    email: string;
+  };
+  const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const [vendors, setVendors] = useState<Vendor[]>([]);
 
@@ -29,11 +35,14 @@ export default function DashboardPage() {
   
     // Fetch Vendors
     useEffect(() => {
-        fetch("/api/vendors")
+      fetch("/api/vendors")
         .then((res) => res.json())
         .then((data) => setVendors(data))
-        .catch((err) => console.error("Failed to load vendors:", err));
+        .catch(() => {
+          console.error("Failed to load vendors");
+        });
     }, []);
+    
     if (loading) return <p className="text-center mt-10">Loading...</p>;
     if (!user) return null;
 
@@ -99,7 +108,7 @@ export default function DashboardPage() {
               </div>
               <div className="flex flex-wrap sm:flex-row flex-col py-6 mb-12">
                 <h1 className="sm:w-2/5 text-white font-medium title-font text-2xl mb-2 sm:mb-0">
-                  Welcome, {user.name}
+                  <h1>Welcome, {user?.name}</h1>
                 </h1>
                 <p className="sm:w-3/5 leading-relaxed text-base sm:pl-10 pl-0">
                   Welcome sa aming online sari-sari store — ang inyong kapitbahay na tindahan sa digital mundo. 
@@ -113,11 +122,12 @@ export default function DashboardPage() {
               {vendors.map((vendor) => (
                 <div key={vendor.id} className="p-4 md:w-1/3 sm:mb-0 mb-6">
                   <div className="rounded-lg h-64 overflow-hidden">
-                    <img
-                      alt={vendor.stall_name}
-                      className="object-cover object-center h-full w-full"
-                      src={`${vendor.image_url}`} 
-                    />
+                  <Image 
+                    src={vendor.image_url ?? "/placeholder.png"} 
+                    alt={vendor.stall_name} 
+                    width={300} 
+                    height={200} 
+                  />
                   </div>
                   <h2 className="text-xl font-medium title-font text-white mt-5">
                     {vendor.stall_name}

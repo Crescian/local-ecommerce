@@ -31,7 +31,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ message: "User created", user: { id: user.id, email: user.email } })
   } catch (error) {
-    console.error(error)
+    console.error("Signup failed:", error) // now it's used
     return NextResponse.json({ error: "Something went wrong" }, { status: 500 })
   }
 }
