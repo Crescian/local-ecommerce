@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -37,67 +38,130 @@ export default function LoginPage() {
   };
 
   return (
-    <section className="text-gray-400 bg-gray-900 body-font min-h-screen flex items-center">
-      <div className="container px-5 py-24 mx-auto flex flex-wrap items-center">
-        <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
-          <h1 className="title-font font-medium text-3xl text-white">
-            Welcome Back! Please login to continue
-          </h1>
-          <p className="leading-relaxed mt-4">
-            Enter your credentials to access your dashboard securely.
-          </p>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 relative overflow-hidden flex items-center justify-center">
+      {/* Lightning Background Effects */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-blue-400/20 via-transparent to-transparent"></div>
+        <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-blue-300/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-cyan-300/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-1/4 left-1/4 w-72 h-72 bg-indigo-300/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
+        
+        {/* Lightning Effects */}
+        <div className="absolute top-20 left-1/4 w-1 h-32 bg-gradient-to-b from-cyan-300 via-white to-transparent opacity-60 animate-pulse"></div>
+        <div className="absolute top-32 left-1/3 w-1 h-24 bg-gradient-to-b from-blue-300 via-white to-transparent opacity-50 animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-16 right-1/3 w-1 h-28 bg-gradient-to-b from-indigo-300 via-white to-transparent opacity-70 animate-pulse" style={{animationDelay: '2s'}}></div>
+        
+        {/* Diagonal Light Rays */}
+        <div className="absolute top-0 left-0 w-full h-full">
+          <div className="absolute top-0 left-1/4 w-0.5 h-96 bg-gradient-to-br from-cyan-400/40 via-white/60 to-transparent transform rotate-12 animate-pulse"></div>
+          <div className="absolute top-0 right-1/4 w-0.5 h-80 bg-gradient-to-br from-blue-400/40 via-white/50 to-transparent transform -rotate-12 animate-pulse" style={{animationDelay: '1.5s'}}></div>
+          <div className="absolute top-20 left-1/2 w-0.5 h-72 bg-gradient-to-br from-indigo-400/40 via-white/70 to-transparent transform rotate-6 animate-pulse" style={{animationDelay: '3s'}}></div>
         </div>
-
-        <form
-          onSubmit={handleSubmit}
-          className="lg:w-2/6 md:w-1/2 bg-gray-800 bg-opacity-50 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0"
-        >
-          <h2 className="text-white text-lg font-medium title-font mb-5">Login</h2>
-
-          {error && <p className="text-red-500 mb-3">{error}</p>}
-
-          <div className="relative mb-4">
-            <label htmlFor="email" className="leading-7 text-sm text-gray-400">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={form.email}
-              onChange={handleChange}
-              className="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-indigo-900 rounded border border-gray-600 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-              required
-            />
-          </div>
-
-          <div className="relative mb-4">
-            <label htmlFor="password" className="leading-7 text-sm text-gray-400">
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={form.password}
-              onChange={handleChange}
-              className="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-indigo-900 rounded border border-gray-600 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-              required
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
-          >
-            Login
-          </button>
-
-          <p className="text-xs mt-3">
-            {"Don't have an account?"} <span className="text-indigo-400 cursor-pointer">Sign up</span>
-          </p>
-        </form>
+        
+        {/* Floating Light Particles */}
+        <div className="absolute top-1/4 left-1/6 w-2 h-2 bg-cyan-300 rounded-full animate-bounce opacity-80"></div>
+        <div className="absolute top-1/3 right-1/5 w-1.5 h-1.5 bg-blue-300 rounded-full animate-bounce opacity-60" style={{animationDelay: '0.5s'}}></div>
+        <div className="absolute top-1/2 left-1/5 w-1 h-1 bg-indigo-300 rounded-full animate-bounce opacity-70" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-2/3 right-1/4 w-2.5 h-2.5 bg-cyan-400 rounded-full animate-bounce opacity-50" style={{animationDelay: '1.5s'}}></div>
       </div>
-    </section>
+
+      {/* Navigation Header */}
+      <header className="absolute top-0 left-0 right-0 z-50 pt-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between">
+            {/* Logo/Branding */}
+            <Link href="/" className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center shadow-lg">
+                <span className="text-white font-bold text-xl">L</span>
+              </div>
+              <span className="text-xl font-bold text-white">LocalMart</span>
+            </Link>
+            
+            {/* Back to Home */}
+            <Link 
+              href="/"
+              className="text-slate-300 hover:text-cyan-400 px-4 py-2 rounded-lg text-sm font-medium transition-colors border border-slate-600/50 hover:border-cyan-400/50"
+            >
+              ← Back to Home
+            </Link>
+          </div>
+        </div>
+      </header>
+
+      {/* Login Form Container */}
+      <div className="relative z-10 w-full max-w-md px-6">
+        <div className="bg-slate-800/60 backdrop-blur-md border border-slate-600/50 rounded-3xl p-8 shadow-2xl">
+          {/* Header */}
+          <div className="text-center mb-8">
+            <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+              </svg>
+            </div>
+            <h1 className="text-3xl font-bold text-white mb-2">Welcome Back</h1>
+            <p className="text-slate-300">Sign in to your LocalMart account</p>
+          </div>
+
+          {/* Error Message */}
+          {error && (
+            <div className="bg-red-500/20 border border-red-500/30 text-red-300 px-4 py-3 rounded-xl mb-6 text-center">
+              {error}
+            </div>
+          )}
+
+          {/* Login Form */}
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
+                Email Address
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                className="w-full bg-slate-700/50 border border-slate-600/50 rounded-xl px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400/50 transition-all duration-200"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+
+            <div>
+              <label htmlFor="password" className="block text-sm font-medium text-slate-300 mb-2">
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                value={form.password}
+                onChange={handleChange}
+                className="w-full bg-slate-700/50 border border-slate-600/50 rounded-xl px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400/50 transition-all duration-200"
+                placeholder="Enter your password"
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold py-3 px-6 rounded-xl hover:from-cyan-600 hover:to-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            >
+              Sign In
+            </button>
+          </form>
+
+          {/* Footer */}
+          <div className="text-center mt-8 pt-6 border-t border-slate-600/50">
+            <p className="text-slate-300">
+              {`Don't have an account?`}{" "}
+              <Link href="/signup" className="text-cyan-400 hover:text-cyan-300 font-medium transition-colors">
+                Sign up here
+              </Link>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

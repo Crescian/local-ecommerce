@@ -107,11 +107,11 @@ export default function DashboardPage() {
                 <div className="w-24 h-full bg-indigo-500"></div>
               </div>
               <div className="flex flex-wrap sm:flex-row flex-col py-6 mb-12">
-                <h1 className="sm:w-2/5 text-white font-medium title-font text-2xl mb-2 sm:mb-0">
+                <div className="sm:w-2/5 text-white font-medium title-font text-2xl mb-2 sm:mb-0">
                   <h1>Welcome, {user?.name}</h1>
-                </h1>
+                </div>
                 <p className="sm:w-3/5 leading-relaxed text-base sm:pl-10 pl-0">
-                  Welcome sa aming online sari-sari store — ang inyong kapitbahay na tindahan sa digital mundo. 
+                  Welcome sa aming online sari-sari store — ang inyong kapitbahay na tindahan sa dig  ital mundo. 
                   Dito, makakabili ka ng mga pang-araw-araw na kailangan: mula sa bigas, kape, de-lata, chichirya, hanggang sa load at softdrinks.
                 </p>
               </div>
