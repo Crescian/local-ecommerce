@@ -12,7 +12,7 @@ type Vendor = {
     description: string;
     image_url: string;
   };
-export default function DashboardPage() {
+export default function ShopPage() {
   const router = useRouter();
   type User = {
     name: string;
@@ -287,8 +287,12 @@ export default function DashboardPage() {
                     <div className="p-4">
                       <p className="text-slate-300 text-sm line-clamp-3 min-h-[3.75rem]">{vendor.description}</p>
                       <div className="mt-4 flex items-center justify-between">
-                        <button className="px-4 py-2 rounded-lg text-sm font-medium bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-600 hover:to-blue-700 transition-colors">View Stall</button>
-                        <button className="px-3 py-2 rounded-lg text-sm font-medium border border-slate-600/60 text-slate-300 hover:border-cyan-400/40 hover:text-cyan-300 transition-colors">Add to Cart</button>
+                        <button
+                          onClick={() => router.push(`/shop/vendors/${vendor.id}`)}
+                          className="px-4 py-2 rounded-lg text-sm font-medium bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-600 hover:to-blue-700 transition-colors"
+                        >
+                          View Stall
+                        </button>
                       </div>
                     </div>
                   </div>

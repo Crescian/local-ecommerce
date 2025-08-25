@@ -28,7 +28,7 @@ export default function LoginPage() {
 
       if (res.ok) {
         // Login successful, token is in httpOnly cookie
-        router.push("/dashboard");
+        router.push("/shop");
       } else {
         setError(data.error || "Login failed");
       }
