@@ -6,10 +6,11 @@ const prisma = new PrismaClient();
 // GET /api/vendors/[id] → Vendor details with products
 export async function GET(
   _req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const vendorId = Number(params.id);
+    const { id } = await params;
+    const vendorId = Number(id);
     if (Number.isNaN(vendorId)) {
       return NextResponse.json({ error: "Invalid vendor id" }, { status: 400 });
     }
