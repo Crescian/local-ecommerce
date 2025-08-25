@@ -200,7 +200,7 @@ export default function Home() {
             </h1>
             <p className="text-2xl text-slate-300 leading-relaxed max-w-4xl mx-auto">
               Connect with your neighborhood vendors, order fresh produce, and support local businesses. 
-              From sari-sari stores to palengke favorites - all delivered to your doorstep.
+              From sari-sari stores to palengke favorites - all delivered to your doorstep. Developed by CML
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <Link 
